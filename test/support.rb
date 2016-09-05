@@ -5,13 +5,13 @@ Bundler.require(:default, :test)
 
 require "minitest/autorun"
 
-module Omise
+module Omise3ds
   class Test < Minitest::Test
     def before_setup
-      Omise.test!
-      Omise.api_key = "pkey_test_4yq6tct0llin5nyyi5l"
-      Omise.vault_key = "skey_test_4yq6tct0lblmed2yp5t"
-      Omise.api_version = nil
+      Omise3ds.test!
+      Omise3ds.api_key = "pkey_test_4yq6tct0llin5nyyi5l"
+      Omise3ds.vault_key = "skey_test_4yq6tct0lblmed2yp5t"
+      Omise3ds.api_version = nil
     end
 
     def setup

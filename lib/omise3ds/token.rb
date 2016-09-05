@@ -1,7 +1,7 @@
-require "omise/object"
-require "omise/vault"
+require "omise3ds/object"
+require "omise3ds/vault"
 
-module Omise
+module Omise3ds
   class Token < OmiseObject
     self.endpoint = "/tokens"
 

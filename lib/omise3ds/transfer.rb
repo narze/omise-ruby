@@ -1,9 +1,9 @@
-require "omise/object"
-require "omise/bank_account"
-require "omise/list"
-require "omise/recipient"
+require "omise3ds/object"
+require "omise3ds/bank_account"
+require "omise3ds/list"
+require "omise3ds/recipient"
 
-module Omise
+module Omise3ds
   class Transfer < OmiseObject
     self.endpoint = "/transfers"
 

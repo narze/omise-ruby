@@ -1,12 +1,12 @@
 require "support"
 
-class TestAccount < Omise::Test
+class TestAccount < Omise3ds::Test
   setup do
-    @account = Omise::Account.retrieve
+    @account = Omise3ds::Account.retrieve
   end
 
   def test_that_we_can_retrieve_the_account
-    assert_instance_of Omise::Account, @account
+    assert_instance_of Omise3ds::Account, @account
     assert_equal "/account", @account.location
   end
 

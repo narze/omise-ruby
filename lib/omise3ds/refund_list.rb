@@ -1,7 +1,7 @@
-require "omise/list"
-require "omise/refund"
+require "omise3ds/list"
+require "omise3ds/refund"
 
-module Omise
+module Omise3ds
   class RefundList < List
     def initialize(charge, attributes = {})
       super(attributes)

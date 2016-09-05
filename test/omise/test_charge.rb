@@ -1,44 +1,44 @@
 require "support"
 
-class TestCharge < Omise::Test
+class TestCharge < Omise3ds::Test
   setup do
-    @charge = Omise::Charge.retrieve("chrg_test_4yq7duw15p9hdrjp8oq")
+    @charge = Omise3ds::Charge.retrieve("chrg_test_4yq7duw15p9hdrjp8oq")
   end
 
   def test_that_we_can_create_a_charge
-    charge = Omise::Charge.create
+    charge = Omise3ds::Charge.create
 
-    assert_instance_of Omise::Charge, charge
+    assert_instance_of Omise3ds::Charge, charge
     assert_equal "chrg_test_4yq7duw15p9hdrjp8oq", charge.id
   end
 
   def test_that_we_can_retrieve_a_charge
-    assert_instance_of Omise::Charge, @charge
+    assert_instance_of Omise3ds::Charge, @charge
     assert_equal "chrg_test_4yq7duw15p9hdrjp8oq", @charge.id
   end
 
   def test_that_unexpanded_resource_are_automatically_expanded
-    assert_instance_of Omise::Charge, @charge
-    assert_instance_of Omise::Customer, @charge.customer
-    assert_instance_of Omise::Transaction, @charge.transaction
-    assert_instance_of Omise::RefundList, @charge.refunds
+    assert_instance_of Omise3ds::Charge, @charge
+    assert_instance_of Omise3ds::Customer, @charge.customer
+    assert_instance_of Omise3ds::Transaction, @charge.transaction
+    assert_instance_of Omise3ds::RefundList, @charge.refunds
   end
 
   def test_that_we_can_retrieve_an_expanded_charge
-    charge = Omise::Charge.retrieve("chrg_test_4yq7duw15p9hdrjp8oq", expand: true)
+    charge = Omise3ds::Charge.retrieve("chrg_test_4yq7duw15p9hdrjp8oq", expand: true)
 
-    assert_instance_of Omise::Charge, charge
+    assert_instance_of Omise3ds::Charge, charge
     assert_equal "chrg_test_4yq7duw15p9hdrjp8oq", @charge.id
 
-    assert_instance_of Omise::Customer, @charge.customer
-    assert_instance_of Omise::Transaction, @charge.transaction
-    assert_instance_of Omise::RefundList, @charge.refunds
+    assert_instance_of Omise3ds::Customer, @charge.customer
+    assert_instance_of Omise3ds::Transaction, @charge.transaction
+    assert_instance_of Omise3ds::RefundList, @charge.refunds
   end
 
   def test_that_we_can_list_all_charge
-    charges = Omise::Charge.list
+    charges = Omise3ds::Charge.list
 
-    assert_instance_of Omise::List, charges
+    assert_instance_of Omise3ds::List, charges
   end
 
   def test_that_we_can_update_a_charge
@@ -55,26 +55,26 @@ class TestCharge < Omise::Test
   end
 
   def test_that_retrieveing_a_non_existing_charge_will_raise_an_error
-    assert_raises Omise::Error do
-      Omise::Charge.retrieve("404")
+    assert_raises Omise3ds::Error do
+      Omise3ds::Charge.retrieve("404")
     end
   end
 
   def test_that_a_customer_has_a_transaction
-    assert_instance_of Omise::Transaction, @charge.transaction
+    assert_instance_of Omise3ds::Transaction, @charge.transaction
   end
 
   def test_that_a_customer_has_a_default_card
-    assert_instance_of Omise::Customer, @charge.customer
+    assert_instance_of Omise3ds::Customer, @charge.customer
   end
 
   def test_that_we_can_retrieve_a_list_of_refunds
-    assert_instance_of Omise::RefundList, @charge.refunds
+    assert_instance_of Omise3ds::RefundList, @charge.refunds
   end
 
   def test_that_paid_return_the_value_of_captured
-    captured_charge = Omise::Charge.new(JSON.load('{ "captured": true }'))
-    uncaptured_charge = Omise::Charge.new(JSON.load('{ "captured": false }'))
+    captured_charge = Omise3ds::Charge.new(JSON.load('{ "captured": true }'))
+    uncaptured_charge = Omise3ds::Charge.new(JSON.load('{ "captured": false }'))
 
     assert_instance_of TrueClass, captured_charge.captured
     assert_instance_of TrueClass, captured_charge.paid
@@ -84,8 +84,8 @@ class TestCharge < Omise::Test
   end
 
   def test_that_captured_return_the_value_of_paid
-    paid_charge = Omise::Charge.new(JSON.load('{ "paid": true }'))
-    unpaid_charge = Omise::Charge.new(JSON.load('{ "paid": false }'))
+    paid_charge = Omise3ds::Charge.new(JSON.load('{ "paid": true }'))
+    unpaid_charge = Omise3ds::Charge.new(JSON.load('{ "paid": false }'))
 
     assert_instance_of TrueClass, paid_charge.paid
     assert_instance_of TrueClass, paid_charge.captured

@@ -1,8 +1,8 @@
-require "omise/object"
-require "omise/charge"
-require "omise/list"
+require "omise3ds/object"
+require "omise3ds/charge"
+require "omise3ds/list"
 
-module Omise
+module Omise3ds
   class Dispute < OmiseObject
     self.endpoint = "/disputes"
 

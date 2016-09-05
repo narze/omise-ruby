@@ -1,6 +1,6 @@
-require "omise/util"
+require "omise3ds/util"
 
-module Omise
+module Omise3ds
   module Attributes
     def initialize(attributes = {})
       @expanded_attributes = {}
@@ -33,7 +33,7 @@ module Omise
     def [](key)
       value = @attributes[key.to_s]
       if value.is_a?(Hash)
-        Omise::Util.typecast(value)
+        Omise3ds::Util.typecast(value)
       else
         value
       end

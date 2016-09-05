@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'omise/version'
+require 'omise3ds/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "omise"
-  spec.version       = Omise::VERSION
+  spec.name          = "omise3ds"
+  spec.version       = Omise3ds::VERSION
   spec.authors       = ["Robin Clart"]
   spec.email         = ["robin@omise.co"]
   spec.summary       = %q{Omise Ruby client}

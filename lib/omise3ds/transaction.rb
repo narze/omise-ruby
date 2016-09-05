@@ -1,7 +1,7 @@
-require "omise/object"
-require "omise/list"
+require "omise3ds/object"
+require "omise3ds/list"
 
-module Omise
+module Omise3ds
   class Transaction < OmiseObject
     self.endpoint = "/transactions"
 

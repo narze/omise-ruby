@@ -1,12 +1,12 @@
 require "support"
 
-class TestBalance < Omise::Test
+class TestBalance < Omise3ds::Test
   setup do
-    @balance = Omise::Balance.retrieve
+    @balance = Omise3ds::Balance.retrieve
   end
 
   def test_that_we_can_retrieve_the_balance
-    assert_instance_of Omise::Balance, @balance
+    assert_instance_of Omise3ds::Balance, @balance
     assert_equal "/balance", @balance.location
   end
 

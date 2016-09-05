@@ -1,4 +1,4 @@
-module Omise
+module Omise3ds
   module SingletonResource
     def self.included(base)
       base.extend ClassMethods

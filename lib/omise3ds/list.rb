@@ -1,7 +1,7 @@
-require "omise/util"
-require "omise/object"
+require "omise3ds/util"
+require "omise3ds/object"
 
-module Omise
+module Omise3ds
   class List < OmiseObject
     include Enumerable
 
@@ -31,7 +31,7 @@ module Omise
     private
 
     def setup_data
-      @data = @attributes["data"].map { |o| Omise::Util.typecast(o) }
+      @data = @attributes["data"].map { |o| Omise3ds::Util.typecast(o) }
     end
   end
 end

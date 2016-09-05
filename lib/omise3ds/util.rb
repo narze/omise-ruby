@@ -1,14 +1,14 @@
 require "json"
 
-require "omise/object"
-require "omise/error"
+require "omise3ds/object"
+require "omise3ds/error"
 
-module Omise
+module Omise3ds
   module Util module_function
     def typecast(object)
       klass = begin
         klass_name = object["object"].split("_").map(&:capitalize).join("")
-        Omise.const_get(klass_name)
+        Omise3ds.const_get(klass_name)
       rescue NameError
         OmiseObject
       end
@@ -18,7 +18,7 @@ module Omise
 
     def load_response(response)
       object = JSON.load(response)
-      raise Omise::Error.new(object) if object["object"] == "error"
+      raise Omise3ds::Error.new(object) if object["object"] == "error"
       object
     end
   end

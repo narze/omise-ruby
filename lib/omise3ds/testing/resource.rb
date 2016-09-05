@@ -1,8 +1,8 @@
 require "uri"
 
-require "omise/util"
+require "omise3ds/util"
 
-module Omise
+module Omise3ds
   module Testing
     class Resource
       def initialize(url, path, key)
@@ -12,19 +12,19 @@ module Omise
       end
 
       def get(attributes = {})
-        Omise::Util.load_response(read_file("get", attributes))
+        Omise3ds::Util.load_response(read_file("get", attributes))
       end
 
       def patch(attributes = {})
-        Omise::Util.load_response(read_file("patch"))
+        Omise3ds::Util.load_response(read_file("patch"))
       end
 
       def delete(attributes = {})
-        Omise::Util.load_response(read_file("delete"))
+        Omise3ds::Util.load_response(read_file("delete"))
       end
 
       def post(attributes = {})
-        Omise::Util.load_response(read_file("post"))
+        Omise3ds::Util.load_response(read_file("post"))
       end
 
       private
@@ -39,7 +39,7 @@ module Omise
         path = generate_path(verb, attributes)
 
         File.read(File.expand_path(File.join(
-          Omise::LIB_PATH, "..", "test", "fixtures",
+          Omise3ds::LIB_PATH, "..", "test", "fixtures",
           [@uri.host, @uri.path, "-#{path}.json"].join
         )))
       end

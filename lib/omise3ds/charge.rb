@@ -1,11 +1,11 @@
-require "omise/object"
-require "omise/list"
-require "omise/customer"
-require "omise/dispute"
-require "omise/refund_list"
-require "omise/transaction"
+require "omise3ds/object"
+require "omise3ds/list"
+require "omise3ds/customer"
+require "omise3ds/dispute"
+require "omise3ds/refund_list"
+require "omise3ds/transaction"
 
-module Omise
+module Omise3ds
   class Charge < OmiseObject
     self.endpoint = "/charges"
 

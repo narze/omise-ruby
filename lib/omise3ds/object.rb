@@ -1,8 +1,8 @@
-require "omise/config"
-require "omise/attributes"
-require "omise/resource"
+require "omise3ds/config"
+require "omise3ds/attributes"
+require "omise3ds/resource"
 
-module Omise
+module Omise3ds
   class OmiseObject
     include Attributes
 
@@ -16,7 +16,7 @@ module Omise
       def resource(path, attributes = {})
         key = attributes.delete(:key) { resource_key }
         preprocess_attributes!(attributes)
-        Omise.resource.new(resource_url, path, key)
+        Omise3ds.resource.new(resource_url, path, key)
       end
 
       private
@@ -26,24 +26,24 @@ module Omise
       end
 
       def singleton!
-        require "omise/singleton_resource"
+        require "omise3ds/singleton_resource"
         include SingletonResource
       end
 
       def preprocess_attributes!(attributes)
         if attributes[:card].is_a?(Hash)
-          require "omise/token"
+          require "omise3ds/token"
           card_attributes = attributes.delete(:card)
           attributes[:card] = Token.create(card: card_attributes).id
         end
       end
 
       def resource_url
-        Omise.api_url
+        Omise3ds.api_url
       end
 
       def resource_key
-        Omise.api_key
+        Omise3ds.api_key
       end
     end
 

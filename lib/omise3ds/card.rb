@@ -1,6 +1,6 @@
-require "omise/object"
+require "omise3ds/object"
 
-module Omise
+module Omise3ds
   class Card < OmiseObject
     self.endpoint = "/cards"
 

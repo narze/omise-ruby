@@ -1,19 +1,19 @@
 require "support"
 
-class TestRecipient < Omise::Test
+class TestRecipient < Omise3ds::Test
   setup do
-    @recipient = Omise::Recipient.retrieve("recp_test_50894vc13y8z4v51iuc")
+    @recipient = Omise3ds::Recipient.retrieve("recp_test_50894vc13y8z4v51iuc")
   end
 
   def test_that_we_can_retrieve_a_recipient
-    assert_instance_of Omise::Recipient, @recipient
+    assert_instance_of Omise3ds::Recipient, @recipient
     assert_equal "recp_test_50894vc13y8z4v51iuc", @recipient.id
   end
 
   def test_that_we_can_list_all_recipients
-    recipients = Omise::Recipient.list
+    recipients = Omise3ds::Recipient.list
 
-    assert_instance_of Omise::List, recipients
+    assert_instance_of Omise3ds::List, recipients
   end
 
   def test_that_we_can_update_a_recipient
@@ -37,6 +37,6 @@ class TestRecipient < Omise::Test
   end
 
   def test_that_a_recipient_has_a_bank_account
-    assert_instance_of Omise::BankAccount, @recipient.bank_account
+    assert_instance_of Omise3ds::BankAccount, @recipient.bank_account
   end
 end

@@ -1,18 +1,18 @@
 require "support"
 
-class TestTransfer < Omise::Test
+class TestTransfer < Omise3ds::Test
   setup do
-    @transfer = Omise::Transfer.retrieve("trsf_test_4yqacz8t3cbipcj766u")
+    @transfer = Omise3ds::Transfer.retrieve("trsf_test_4yqacz8t3cbipcj766u")
   end
 
   def test_that_we_can_create_a_transfer
-    transfer = Omise::Transfer.create
+    transfer = Omise3ds::Transfer.create
 
-    assert_instance_of Omise::Transfer, @transfer
+    assert_instance_of Omise3ds::Transfer, @transfer
   end
 
   def test_that_we_can_retrieve_a_transfer
-    assert_instance_of Omise::Transfer, @transfer
+    assert_instance_of Omise3ds::Transfer, @transfer
     assert_equal "trsf_test_4yqacz8t3cbipcj766u", @transfer.id
   end
 
@@ -30,16 +30,16 @@ class TestTransfer < Omise::Test
   end
 
   def test_that_we_can_list_all_transfer
-    transfers = Omise::Transfer.list
+    transfers = Omise3ds::Transfer.list
 
-    assert_instance_of Omise::List, transfers
+    assert_instance_of Omise3ds::List, transfers
   end
 
   def test_that_a_transfer_has_a_recipient
-    assert_instance_of Omise::Recipient, @transfer.recipient
+    assert_instance_of Omise3ds::Recipient, @transfer.recipient
   end
 
   def test_that_a_transfer_has_a_bank_account
-    assert_instance_of Omise::BankAccount, @transfer.bank_account
+    assert_instance_of Omise3ds::BankAccount, @transfer.bank_account
   end
 end

@@ -1,7 +1,7 @@
-require "omise/object"
-require "omise/bank_account"
+require "omise3ds/object"
+require "omise3ds/bank_account"
 
-module Omise
+module Omise3ds
   class Recipient < OmiseObject
     self.endpoint = "/recipients"
 

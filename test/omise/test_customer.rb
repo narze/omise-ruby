@@ -1,26 +1,26 @@
 require "support"
 
-class TestCustomer < Omise::Test
+class TestCustomer < Omise3ds::Test
   setup do
-    @customer = Omise::Customer.retrieve("cust_test_4yq6txdpfadhbaqnwp3")
+    @customer = Omise3ds::Customer.retrieve("cust_test_4yq6txdpfadhbaqnwp3")
   end
 
   def test_that_we_can_create_a_customer
-    customer = Omise::Customer.create
+    customer = Omise3ds::Customer.create
 
-    assert_instance_of Omise::Customer, customer
+    assert_instance_of Omise3ds::Customer, customer
     assert_equal "cust_test_4yq6txdpfadhbaqnwp3", customer.id
   end
 
   def test_that_we_can_retrieve_a_customer
-    assert_instance_of Omise::Customer, @customer
+    assert_instance_of Omise3ds::Customer, @customer
     assert_equal "cust_test_4yq6txdpfadhbaqnwp3", @customer.id
   end
 
   def test_that_we_can_list_all_customer
-    customers = Omise::Customer.list
+    customers = Omise3ds::Customer.list
 
-    assert_instance_of Omise::List, customers
+    assert_instance_of Omise3ds::List, customers
   end
 
   def test_that_we_can_update_a_customer
@@ -46,25 +46,25 @@ class TestCustomer < Omise::Test
   def test_that_we_can_charge_a_customer
     charge = @customer.charge(amount: 100000, currency: "THB")
 
-    assert_instance_of Omise::Charge, charge
+    assert_instance_of Omise3ds::Charge, charge
   end
 
   def test_that_retrieveing_a_non_existing_customer_will_raise_an_error
-    assert_raises Omise::Error do
-      Omise::Customer.retrieve("404")
+    assert_raises Omise3ds::Error do
+      Omise3ds::Customer.retrieve("404")
     end
   end
 
   def test_that_a_customer_has_a_list_of_card
-    assert_instance_of Omise::CardList, @customer.cards
+    assert_instance_of Omise3ds::CardList, @customer.cards
   end
 
   def test_that_a_customer_can_fetch_a_list_of_ordered_cards
     cards = @customer.cards(order: "chronological")
-    assert_instance_of Omise::CardList, cards
+    assert_instance_of Omise3ds::CardList, cards
   end
 
   def test_that_a_customer_has_a_default_card
-    assert_instance_of Omise::Card, @customer.default_card
+    assert_instance_of Omise3ds::Card, @customer.default_card
   end
 end

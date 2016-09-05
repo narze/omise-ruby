@@ -1,8 +1,8 @@
-require "omise/object"
-require "omise/charge"
-require "omise/transaction"
+require "omise3ds/object"
+require "omise3ds/charge"
+require "omise3ds/transaction"
 
-module Omise
+module Omise3ds
   class Refund < OmiseObject
     self.endpoint = "/refunds"
 

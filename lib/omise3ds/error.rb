@@ -1,4 +1,4 @@
-module Omise
+module Omise3ds
   class Error < StandardError
     def initialize(attributes = {})
       @code = attributes["code"]

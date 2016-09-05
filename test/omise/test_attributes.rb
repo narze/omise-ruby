@@ -1,12 +1,12 @@
 require "support"
 
-module Omise
+module Omise3ds
   class Teapot
     include Attributes
   end
 end
 
-class TestAttributes < Omise::Test
+class TestAttributes < Omise3ds::Test
   setup do
     @attributes = JSON.load(JSON.dump({
       object: "teapot",
@@ -21,16 +21,16 @@ class TestAttributes < Omise::Test
       }
     }))
 
-    @teapot = Omise::Teapot.new(@attributes)
+    @teapot = Omise3ds::Teapot.new(@attributes)
   end
 
   def test_that_we_can_create_a_teapot
-    assert_instance_of Omise::Teapot, @teapot
+    assert_instance_of Omise3ds::Teapot, @teapot
     assert_equal "teapot", @teapot.object
   end
 
   def test_that_the_child_of_a_teapot_is_still_a_teapot
-    assert_instance_of Omise::Teapot, @teapot.child
+    assert_instance_of Omise3ds::Teapot, @teapot.child
     assert_equal "teapot", @teapot.child.object
   end
 
@@ -64,7 +64,7 @@ class TestAttributes < Omise::Test
   def test_that_we_can_access_an_attributes_value_with_the_square_bracket_accessor
     assert_equal "Potts", @teapot["name"]
     assert_nil @teapot["color"]
-    assert_instance_of Omise::Teapot, @teapot["child"]
+    assert_instance_of Omise3ds::Teapot, @teapot["child"]
   end
 
   def test_that_we_can_tell_if_a_key_is_present_in_the_attributes

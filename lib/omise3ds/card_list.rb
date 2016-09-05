@@ -1,8 +1,8 @@
-require "omise/list"
-require "omise/card"
-require "omise/token"
+require "omise3ds/list"
+require "omise3ds/card"
+require "omise3ds/token"
 
-module Omise
+module Omise3ds
   class CardList < List
     def initialize(customer, attributes = {})
       super(attributes)
